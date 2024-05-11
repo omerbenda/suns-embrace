@@ -2,6 +2,7 @@ package com.sunsembrace.blockentity;
 
 import com.sunsembrace.SunsEmbraceMod;
 import com.sunsembrace.block.ModBlocks;
+import com.sunsembrace.blockentity.custom.SolarBlastFurnaceBlockEntity;
 import com.sunsembrace.blockentity.custom.SolarFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -20,6 +21,15 @@ public class ModBlockEntities {
               () ->
                   BlockEntityType.Builder.of(
                           SolarFurnaceBlockEntity::new, ModBlocks.SOLAR_FURNACE.get())
+                      .build(null));
+
+  public static final RegistryObject<BlockEntityType<SolarBlastFurnaceBlockEntity>>
+      SOLAR_BLAST_FURNACE_BLOCK_ENTITY =
+          BLOCK_ENTITIES.register(
+              "solar_blast_furnace_block_entity",
+              () ->
+                  BlockEntityType.Builder.of(
+                          SolarBlastFurnaceBlockEntity::new, ModBlocks.SOLAR_BLAST_FURNACE.get())
                       .build(null));
 
   public static void register(IEventBus eventBus) {

@@ -24,10 +24,11 @@ public class ModCreativeModTabs {
                   .displayItems(
                       (parameters, output) -> {
                         output.accept(ModBlocks.SOLAR_FURNACE.get());
+                        output.accept(ModBlocks.SOLAR_BLAST_FURNACE.get());
                       })
                   .build());
 
   public static void register(IEventBus eventBus) {
-      CREATIVE_MOD_TABS.register(eventBus);
+    CREATIVE_MOD_TABS.register(eventBus);
   }
 }

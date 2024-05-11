@@ -3,6 +3,7 @@ package com.sunsembrace.block.custom;
 import com.sunsembrace.blockentity.ModBlockEntities;
 import com.sunsembrace.blockentity.custom.AbstractSolarFurnaceBlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
@@ -23,6 +24,11 @@ public abstract class AbstractSolarFurnaceBlock extends AbstractFurnaceBlock {
         ? null
         : createTickerHelper(
             pBlockEntityType, ModBlockEntities.SOLAR_FURNACE_BLOCK_ENTITY.get(), this::tick);
+  }
+
+  @Override
+  public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
+    return 0;
   }
 
   public void tick(

@@ -1,9 +1,11 @@
 {
   "block.sunsembrace.solar_furnace": "Solar Furnace",
   "block.sunsembrace.solar_blast_furnace": "Solar Blast Furnace",
+  "block.sunsembrace.solar_smoker": "Solar Smoker",
 
   "container.sunsembrace.solar_furnace": "Solar Furnace",
   "container.sunsembrace.solar_blast_furnace": "Solar Blast Furnace",
+  "container.sunsembrace.solar_smoker": "Solar Smoker",
 
   "creativetab.sunsembrace.suns_embrace_tab": "Sun's Embrace"
 }

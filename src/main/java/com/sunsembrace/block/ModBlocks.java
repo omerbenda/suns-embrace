@@ -3,6 +3,7 @@ package com.sunsembrace.block;
 import com.sunsembrace.SunsEmbraceMod;
 import com.sunsembrace.block.custom.SolarBlastFurnaceBlock;
 import com.sunsembrace.block.custom.SolarFurnaceBlock;
+import com.sunsembrace.block.custom.SolarSmokerBlock;
 import com.sunsembrace.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -24,7 +25,11 @@ public class ModBlocks {
 
   public static final RegistryObject<Block> SOLAR_BLAST_FURNACE =
       registerBlock(
-          "solar_blast_furnace", () -> new SolarBlastFurnaceBlock(Blocks.FURNACE.properties()));
+          "solar_blast_furnace",
+          () -> new SolarBlastFurnaceBlock(Blocks.BLAST_FURNACE.properties()));
+
+  public static final RegistryObject<Block> SOLAR_SMOKER =
+      registerBlock("solar_smoker", () -> new SolarSmokerBlock(Blocks.SMOKER.properties()));
 
   private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
     RegistryObject<T> registeredBlock = BLOCKS.register(name, block);

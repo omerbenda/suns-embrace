@@ -4,6 +4,7 @@ import com.sunsembrace.SunsEmbraceMod;
 import com.sunsembrace.block.ModBlocks;
 import com.sunsembrace.blockentity.custom.SolarBlastFurnaceBlockEntity;
 import com.sunsembrace.blockentity.custom.SolarFurnaceBlockEntity;
+import com.sunsembrace.blockentity.custom.SolarSmokerBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -30,6 +31,15 @@ public class ModBlockEntities {
               () ->
                   BlockEntityType.Builder.of(
                           SolarBlastFurnaceBlockEntity::new, ModBlocks.SOLAR_BLAST_FURNACE.get())
+                      .build(null));
+
+  public static final RegistryObject<BlockEntityType<SolarSmokerBlockEntity>>
+      SOLAR_SMOKER_BLOCK_ENTITY =
+          BLOCK_ENTITIES.register(
+              "solar_smoker_block_entity",
+              () ->
+                  BlockEntityType.Builder.of(
+                          SolarSmokerBlockEntity::new, ModBlocks.SOLAR_SMOKER.get())
                       .build(null));
 
   public static void register(IEventBus eventBus) {

@@ -25,6 +25,7 @@ public class ModCreativeModTabs {
                       (parameters, output) -> {
                         output.accept(ModBlocks.SOLAR_FURNACE.get());
                         output.accept(ModBlocks.SOLAR_BLAST_FURNACE.get());
+                        output.accept(ModBlocks.SOLAR_SMOKER.get());
                       })
                   .build());
 

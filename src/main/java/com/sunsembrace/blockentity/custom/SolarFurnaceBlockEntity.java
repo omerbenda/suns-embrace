@@ -9,11 +9,26 @@ import net.minecraft.world.inventory.FurnaceMenu;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public class SolarFurnaceBlockEntity extends AbstractFurnaceBlockEntity {
   public SolarFurnaceBlockEntity(BlockPos pPos, BlockState pBlockState) {
     super(
         ModBlockEntities.SOLAR_FURNACE_BLOCK_ENTITY.get(), pPos, pBlockState, RecipeType.SMELTING);
+  }
+
+  public void tick() {
+    this.dataAccess.set(0, 100);
+    this.dataAccess.set(1, 1000);
+    BlockPos pos = this.getBlockPos();
+
+    if (this.level != null) {
+      BlockState blockState = this.level.getBlockState(pos);
+
+      if (!blockState.getValue(BlockStateProperties.LIT)) {
+        level.setBlock(pos, blockState.setValue(BlockStateProperties.LIT, Boolean.TRUE), 2);
+      }
+    }
   }
 
   @Override

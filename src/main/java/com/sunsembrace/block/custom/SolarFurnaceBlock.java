@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -37,13 +38,24 @@ public class SolarFurnaceBlock extends AbstractFurnaceBlock {
   @Override
   public <T extends BlockEntity> BlockEntityTicker<T> getTicker(
       Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-    return createFurnaceTicker(
-        pLevel, pBlockEntityType, ModBlockEntities.SOLAR_FURNACE_BLOCK_ENTITY.get());
+    return pLevel.isClientSide
+        ? null
+        : createTickerHelper(
+            pBlockEntityType, ModBlockEntities.SOLAR_FURNACE_BLOCK_ENTITY.get(), this::tick);
+  }
+
+  public void tick(
+      Level pLevel, BlockPos pPos, BlockState pState, AbstractFurnaceBlockEntity pBlockEntity) {
+    AbstractFurnaceBlockEntity.serverTick(pLevel, pPos, pState, pBlockEntity);
+
+    if (pBlockEntity instanceof SolarFurnaceBlockEntity solarFurnaceBlockEntity) {
+      solarFurnaceBlockEntity.tick();
+    }
   }
 
   @Nullable
   @Override
   public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-    return new SolarFurnaceBlockEntity(pPos, pState);
+    return ModBlockEntities.SOLAR_FURNACE_BLOCK_ENTITY.get().create(pPos, pState);
   }
 }

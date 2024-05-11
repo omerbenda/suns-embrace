@@ -1,6 +1,7 @@
 package com.sunsembrace;
 
 import com.sunsembrace.block.ModBlocks;
+import com.sunsembrace.blockentity.ModBlockEntities;
 import com.sunsembrace.item.ModCreativeModTabs;
 import com.sunsembrace.item.ModItems;
 import net.minecraftforge.common.MinecraftForge;
@@ -18,6 +19,7 @@ public class SunsEmbraceMod {
 
     ModItems.register(modEventBus);
     ModBlocks.register(modEventBus);
+    ModBlockEntities.register(modEventBus);
     ModCreativeModTabs.register(modEventBus);
 
     modEventBus.addListener(this::commonSetup);

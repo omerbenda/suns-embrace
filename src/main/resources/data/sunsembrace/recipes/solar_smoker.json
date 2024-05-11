@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "#",
+    "R",
+    "S"
+  ],
+  "key": {
+    "#": {
+      "item": "sunsembrace:solar_panel"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "minecraft:smoker"
+    }
+  },
+  "result": {
+    "item": "sunsembrace:solar_smoker",
+    "count": 1
+  }
+}

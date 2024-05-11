@@ -1,4 +1,6 @@
 {
+  "item.sunsembrace.solar_panel": "Solar Panel",
+
   "block.sunsembrace.solar_furnace": "Solar Furnace",
   "block.sunsembrace.solar_blast_furnace": "Solar Blast Furnace",
   "block.sunsembrace.solar_smoker": "Solar Smoker",

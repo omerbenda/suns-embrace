@@ -23,6 +23,8 @@ public class ModCreativeModTabs {
                   .title(Component.translatable("creativetab.sunsembrace.suns_embrace_tab"))
                   .displayItems(
                       (parameters, output) -> {
+                        output.accept(ModItems.SOLAR_PANEL.get());
+
                         output.accept(ModBlocks.SOLAR_FURNACE.get());
                         output.accept(ModBlocks.SOLAR_BLAST_FURNACE.get());
                         output.accept(ModBlocks.SOLAR_SMOKER.get());

@@ -24,8 +24,9 @@ public abstract class AbstractSolarFurnaceBlockEntity extends AbstractFurnaceBlo
     if (this.level != null) {
       BlockPos pos = this.getBlockPos();
       BlockState blockState = this.level.getBlockState(pos);
+      int skyBrightness = this.level.getBrightness(LightLayer.SKY, pos.above());
 
-      if (this.level.getBrightness(LightLayer.SKY, pos.above()) >= MIN_SKY_LIGHT) {
+      if (skyBrightness == 15 && ((skyBrightness - this.level.getSkyDarken()) >= MIN_SKY_LIGHT)) {
         this.dataAccess.set(0, 100);
         this.dataAccess.set(1, 1000);
 

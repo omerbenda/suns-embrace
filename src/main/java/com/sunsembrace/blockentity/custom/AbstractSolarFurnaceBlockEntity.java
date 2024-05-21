@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public abstract class AbstractSolarFurnaceBlockEntity extends AbstractFurnaceBlockEntity {
-  public static final int MIN_SKY_LIGHT = 8;
+  public static final int MIN_SKY_LIGHT = 7;
   public static final int RECHARGE_RATE = 2;
   public static final int MAX_TICK_CHARGE = 1000;
 

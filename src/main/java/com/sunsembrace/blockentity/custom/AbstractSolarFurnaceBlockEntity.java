@@ -10,7 +10,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public abstract class AbstractSolarFurnaceBlockEntity extends AbstractFurnaceBlockEntity {
-  public static final int MIN_SKY_LIGHT = 8;
+  public static final int MIN_SKY_LIGHT = 7;
+  public static final int RECHARGE_RATE = 2;
+  public static final int MAX_TICK_CHARGE = 1000;
 
   public AbstractSolarFurnaceBlockEntity(
       BlockEntityType<?> pType,
@@ -27,8 +29,8 @@ public abstract class AbstractSolarFurnaceBlockEntity extends AbstractFurnaceBlo
       int skyBrightness = this.level.getBrightness(LightLayer.SKY, pos.above());
 
       if (skyBrightness == 15 && ((skyBrightness - this.level.getSkyDarken()) >= MIN_SKY_LIGHT)) {
-        this.dataAccess.set(0, 100);
-        this.dataAccess.set(1, 1000);
+        this.dataAccess.set(0, Math.min(this.dataAccess.get(0) + RECHARGE_RATE, MAX_TICK_CHARGE + 1));
+        this.dataAccess.set(1, MAX_TICK_CHARGE);
 
         if (!blockState.getValue(BlockStateProperties.LIT)) {
           level.setBlock(pos, blockState.setValue(BlockStateProperties.LIT, Boolean.TRUE), 2);
